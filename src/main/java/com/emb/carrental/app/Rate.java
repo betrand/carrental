@@ -8,7 +8,7 @@ import com.emb.carrental.util.Constants;
  */
 public class Rate {
 
-    private String engineType; // Either Petrol, Diesel, etc. Allows for more types e.g Kerosene, Electric, Water
+    private String engineType;
     private double standardRate = 15;
     private static final int dieselAdjustment = 1;
     private static final int additionalRate = 2;
@@ -36,7 +36,6 @@ public class Rate {
         this.standardRate = standardRate;
     }
 
-    //Encapsulated function
     private void adjustRate(String engineType) {
         if (engineType != null && engineType.equalsIgnoreCase(Constants.DIESEL)) {
             standardRate -= dieselAdjustment;

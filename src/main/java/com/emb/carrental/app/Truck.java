@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 /**
  *
- * @author bu_000 // Assuming Non- rentable Vehicle.
+ * @author bu_000
  */
 public class Truck extends Vehicle implements Serializable {
 

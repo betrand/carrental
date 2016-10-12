@@ -28,13 +28,5 @@ public class TripIT {
         assertThat(distances.contains("Mumbai-Bangalore"), is(true));
         LOG.info(distances.toString());
     }
-    /*
-    @Test
-    public void getDistancesFail() {
-    List<String> distances = this.trip.getDistances();
-    assertThat(distances.isEmpty(), is(true));
-    assertThat(distances.size(), is(1));
-    assertThat(distances.contains("Pune-Bangalore"), is(false));
-    LOG.info(distances.toString());
-    }*/
+
 }
