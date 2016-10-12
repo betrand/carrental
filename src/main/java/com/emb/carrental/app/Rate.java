@@ -60,8 +60,8 @@ public class Rate {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder("Vehicle Engine{");
-        sb.append(" engineType=").append(this.engineType);
-        sb.append(", standardRate=").append(this.standardRate);
+        sb.append("EngineType=").append(this.engineType);
+        sb.append(", StandardRate=").append(this.standardRate);
         sb.append("}");
         return sb.toString();
     }

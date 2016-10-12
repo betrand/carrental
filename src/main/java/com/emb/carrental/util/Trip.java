@@ -16,13 +16,7 @@ public class Trip {
     private String trip;        // e.g. Pune-Mumbai-Bangalore-Pune
     private int noOfPassengers;
 
-    public Trip(String vehicleType, String engineType, String type,
-            String trip, int noOfPassengers) {
-        this.vehicleType = vehicleType;
-        this.engineType = engineType;
-        this.type = type;
-        this.trip = trip;
-        this.noOfPassengers = noOfPassengers;
+    public Trip() {
     }
 
     public String getVehicleType() {

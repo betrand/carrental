@@ -55,7 +55,7 @@ public class Distance implements Serializable {
     @Override
     public String toString() {
         StringBuilder toStringBuilder = new StringBuilder("Distance{");
-        toStringBuilder.append(" Id=").append(this.id);
+        toStringBuilder.append("Id=").append(this.id);
         toStringBuilder.append(", Distance=").append(this.distance);
         toStringBuilder.append('}');
         return toStringBuilder.toString();
