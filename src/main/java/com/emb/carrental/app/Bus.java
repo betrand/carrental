@@ -13,6 +13,12 @@ import java.io.Serializable;
  */
 public class Bus extends Vehicle implements Rentable, Serializable {
 
+    @Override
+    public double rent(Trip trip) throws InvalidDistanceException {
+        this.isRented = trip != null;
+        return this.calculateTotalExpenseForTrip(trip);
+    }
+
     private double discountRate = 0.02;
 
     public double getDiscountRate() {
@@ -21,11 +27,6 @@ public class Bus extends Vehicle implements Rentable, Serializable {
 
     public void setDiscountRate(double discountRate) {
         this.discountRate = discountRate;
-    }
-
-    @Override
-    public void rent() {
-        System.out.println("Not yet Implemented");
     }
 
     /**

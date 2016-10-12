@@ -1,10 +1,13 @@
 package com.emb.carrental.intf;
 
+import com.emb.carrental.util.InvalidDistanceException;
+import com.emb.carrental.util.Trip;
+
 /**
  *
  * @author bu_000
  */
 public interface Rentable {
 
-    public void rent();
+    public double rent(Trip trip) throws InvalidDistanceException;
 }

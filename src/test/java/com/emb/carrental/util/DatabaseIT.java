@@ -21,16 +21,16 @@ public class DatabaseIT {
         this.database = new Database();
         distances = new ArrayList<>();
         distances.add("Pune-Mumbai"); // distance = 200.0 KM
-        distances.add("Pune-Bangalore");  // distance = 1000.0 KM
+        distances.add("Mumbai-Bangalore");  // distance = 400.0 KM
     }
 
     @Test
     public void calculateTotalDistance() throws InvalidDistanceException {
         double totalDistance = this.database.calculateTotalDistance(distances);
-        assertThat(totalDistance, is(1200.0));
+        assertThat(totalDistance, is(600.0));
         distances.add("Bangalore-Pune"); // distance = 1000.0 KM
         totalDistance = this.database.calculateTotalDistance(distances);
-        assertThat(totalDistance, is(2200.0));
+        assertThat(totalDistance, is(1600.0));
         LOG.info(String.valueOf(totalDistance));
     }
 }

@@ -12,12 +12,29 @@ import com.emb.carrental.util.Util;
  */
 public abstract class Vehicle {
 
+    protected boolean isRented;
     protected String type;                     // Assuming there's only 2 possibilities AC and NON AC we can use boolean. May use Enum too
     protected int maxLimit = 2;                // Assuming there's only 2 possibilities AC and NON AC we can use boolean. May use Enum too
     protected int noOfPassengers;              // No of passengers
     protected Rate rate;                       // Allows for varied rates based on vehicle engine type etc.
 
     public Vehicle() {
+    }
+
+    public boolean isIsRented() {
+        return isRented;
+    }
+
+    public void setIsRented(boolean isRented) {
+        this.isRented = isRented;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 
     public int getMaxLimit() {
@@ -53,6 +70,12 @@ public abstract class Vehicle {
     }
 
     //TODO: For sub-classes override here to apply polymorphic behaviours Bus Apply 2% discount here
+    /**
+     *
+     * @param trip
+     * @return totalexpense
+     * @throws InvalidDistanceException
+     */
     public double calculateTotalExpenseForTrip(Trip trip) throws InvalidDistanceException {
         this.type = trip.getType();
         this.noOfPassengers = trip.getNoOfPassengers();
