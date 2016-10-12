@@ -1,4 +1,4 @@
-package com.emb.carrental.app;
+package com.emb.carrental.app.model;
 
 import com.emb.carrental.util.Constants;
 

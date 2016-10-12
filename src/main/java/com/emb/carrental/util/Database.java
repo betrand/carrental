@@ -1,6 +1,6 @@
 package com.emb.carrental.util;
 
-import com.emb.carrental.app.Distance;
+import com.emb.carrental.app.model.Distance;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;

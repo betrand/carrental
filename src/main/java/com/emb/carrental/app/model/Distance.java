@@ -1,12 +1,17 @@
-package com.emb.carrental.app;
+package com.emb.carrental.app.model;
 
 import java.io.Serializable;
 import java.util.Objects;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
  * @author bu_000
  */
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlRootElement
 public class Distance implements Serializable {
 
     private String id;

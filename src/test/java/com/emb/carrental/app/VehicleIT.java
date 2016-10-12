@@ -1,5 +1,8 @@
 package com.emb.carrental.app;
 
+import com.emb.carrental.app.model.Bus;
+import com.emb.carrental.app.model.Swift;
+import com.emb.carrental.app.model.Vehicle;
 import com.emb.carrental.util.InvalidDistanceException;
 import com.emb.carrental.util.LOG;
 import com.emb.carrental.util.Trip;
@@ -42,8 +45,6 @@ public class VehicleIT {
         this.swift = new Swift();
 
         this.vehicles = new ArrayList<>();
-        vehicles.add(bus);
-        vehicles.add(swift);
     }
 
     @Test

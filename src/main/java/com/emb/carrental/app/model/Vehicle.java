@@ -1,4 +1,4 @@
-package com.emb.carrental.app;
+package com.emb.carrental.app.model;
 
 import com.emb.carrental.util.Constants;
 import com.emb.carrental.util.Database;
@@ -17,6 +17,7 @@ public abstract class Vehicle {
     protected int maxLimit = 2;                // Assuming there's only 2 possibilities AC and NON AC we can use boolean. May use Enum too
     protected int noOfPassengers;              // No of passengers
     protected Rate rate;                       // Allows for varied rates based on vehicle engine type etc.
+    private Trip trip;
 
     public Vehicle() {
     }
@@ -61,6 +62,14 @@ public abstract class Vehicle {
         this.rate = rate;
     }
 
+    public Trip getTrip() {
+        return trip;
+    }
+
+    public void setTrip(Trip trip) {
+        this.trip = trip;
+    }
+
     public boolean isAC() {
         return this.type == null ? false : this.type.equalsIgnoreCase(Constants.AC);
     }
@@ -69,7 +78,6 @@ public abstract class Vehicle {
         return noOfPassengers > maxLimit;
     }
 
-    //TODO: For sub-classes override here to apply polymorphic behaviours Bus Apply 2% discount here
     /**
      *
      * @param trip
@@ -77,6 +85,31 @@ public abstract class Vehicle {
      * @throws InvalidDistanceException
      */
     public double calculateTotalExpenseForTrip(Trip trip) throws InvalidDistanceException {
+        this.type = trip.getType();
+        this.noOfPassengers = trip.getNoOfPassengers();
+        rate = new Rate(trip.getEngineType(), isAC());
+        double distance = Database.calculateTotalDistance(trip.getDistances());
+        double additionalCharge = 0;
+
+        if (limitIsExceeded()) {
+            additionalCharge = rate.getAdditionalChargeRatePerKmAndPerson() * distance * noOfPassengers;
+        }
+
+        double totalExpenseForTrip = (rate.getStandardRate() * distance) + additionalCharge;
+
+        return Util.roundOff(totalExpenseForTrip, 2);
+    }
+
+    /**
+     *
+     * @return double
+     * @throws InvalidDistanceException TODO: For sub-classes override here to
+     * apply polymorphic behaviours Bus Apply 2% discount here
+     */
+    public double calculateTotalExpenseForTrip() throws InvalidDistanceException {
+        if (trip == null) {
+            throw new InvalidDistanceException("Trip is required");
+        }
         this.type = trip.getType();
         this.noOfPassengers = trip.getNoOfPassengers();
         rate = new Rate(trip.getEngineType(), isAC());

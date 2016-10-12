@@ -1,17 +1,22 @@
-package com.emb.carrental.app;
+package com.emb.carrental.app.model;
 
 import com.emb.carrental.util.Database;
 import com.emb.carrental.util.InvalidDistanceException;
 import com.emb.carrental.util.Trip;
 import com.emb.carrental.util.Util;
 import java.io.Serializable;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
  * @author bu_000
  */
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlRootElement
 public class Bus extends Vehicle implements Serializable {
-
+    private Trip trip;
     private double discountRate = 0.02;
 
     public double getDiscountRate() {
