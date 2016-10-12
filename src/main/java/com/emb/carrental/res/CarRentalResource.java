@@ -14,7 +14,7 @@ public class CarRentalResource {
     @Path("calculateTotalExpense")
     public String calculateTotalExpense() {
         // To quickly test the system e.g get the UI guys to start consuming the service under development
-        // return dummy JSON texts
+        // return dummy JSON texts this may be read from a json file as in test.json in this project.
         return "TotalExpense: 12345.00";
     }
 
